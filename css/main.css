@@ -7,11 +7,12 @@ body {
 }
 
 .main {
-	background-color: white;
+	background-image: url('../images/background.gif');
 	margin-top: 110px;
 	padding-left: 100px;
 	min-width: 1200px;
 	height: 500px;
+	background-size: cover;
 }
 
 .ryu-ready, .ryu-still, .ryu-throwing {
@@ -35,7 +36,7 @@ body {
   background-image: url('../images/ryu-throwing-hadouken.png');
 }
 
-.hadouken, .ryu-ready, .ryu-still, .ryu-throwing {
+.main, .hadouken, .ryu-ready, .ryu-still, .ryu-throwing {
   background-repeat: no-repeat;
 }
 
