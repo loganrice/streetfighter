@@ -7,28 +7,43 @@ $(document).ready(function() {
 		$('.ryu-ready').hide();
 		$('.ryu-still').show();
 	})
-	.mousedown(function() {
+	.mousedown(function(){
 		playHadouken();
 		$('.ryu-ready').hide();
+		$('.ryu-cool').hide();
+		$('.ryu-still').hide();
 		$('.ryu-throwing').show();
-		$('.hadouken').finish().show()
-			.animate(
-				{'left': '1000px'},
-				500,
-				function() {
-					$(this).hide();
-					$(this).css('left', '435px');
-				});
-		// play hadouken sound
-		// show hadouken and animate it to the right of the screen
+		$('.hadouken').finish().show().animate(
+		  {'left': '1000px'},
+		  500,
+		  function() {
+		    $(this).hide();
+		    $(this).css('left', '435px');
+		  }
+		);
 	})
 	.mouseup(function() {
 		$('.ryu-throwing').hide();
+		$('.ryu-cool').hide();
+		$('.ryu-still').hide();
+		$('.ryu-throwing').hide();
 		$('.ryu-ready').show();
-
-		// ryu goes back to his ready position
 	})
-	
+
+	$(document).on("keydown", function(event) {
+		if (event.which == 88) {
+			$('.ryu-still').hide();
+			$('.ryu-throwing').hide();
+			$('.ryu-ready').hide();
+			$('.ryu-cool').show();
+		}
+	})
+	.on("keyup", function() {
+		$('.ryu-cool').hide();
+		$('.ryu-ready').hide();
+		$('.ryu-throwing').hide();
+		$('.ryu-still').show();
+	})
 })
 
 function playHadouken () {
