@@ -1,9 +1,13 @@
+var MOUSEOVERRYU = false
+
 $(document).ready(function() {
 	$('.ryu').mouseenter(function() {
-		HideAllExcept($('.ryu-ready'))
+		HideAllExcept($('.ryu-ready'));
+		MOUSEOVERRYU = true;
 	})
 	.mouseleave(function() {
-		HideAllExcept($('.ryu-still'))
+		HideAllExcept($('.ryu-still'));
+		MOUSEOVERRYU = false;
 	})
 	.mousedown(function(){
 		playHadouken();
@@ -27,7 +31,11 @@ $(document).ready(function() {
 		}
 	})
 	.on("keyup", function() {
-		HideAllExcept($('.ryu-still'));
+		if (MOUSEOVERRYU == true ) {
+			HideAllExcept($('.ryu-ready'));
+		} else {
+			HideAllExcept($('.ryu-still'));
+		}
 	})
 })
 
